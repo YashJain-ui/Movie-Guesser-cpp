@@ -1,4 +1,4 @@
-//version1
+//version2
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,19 +6,29 @@ int main(){
     cout << "==============" << endl;
     cout << "MOVIE GUESSER" << endl;
     cout << "==============" << endl;
-    string CorrectAns = "Inception";
-    cout << "Hint 1: Genres: Dreams, Sci-Fi, Action" << endl;
-    cout << "Hint 2: Year of release: 2010" << endl;
-    cout << "Hint 3: Directed by Christopher Nolan" << endl;
-    string Answer;
-    cout << "Your Guess: ";
-    cin >> Answer;
-    if(Answer == CorrectAns)
+    string arr[3] = {"Inception", "The Dark Knight", "Interstellar"};
+    string hints[3][3] = {
+        {"Hint 1: Dreams, Sci-Fi, Action", "Hint 2: 2010", "Hint 3: Christopher Nolan"},
+        {"Hint 1: Superhero, Crime, Action", "Hint 2: 2008", "Hint 3: Christopher Nolan"},
+        {"Hint 1: Time, Space, Sci-fi", "Hint 2: 2014", "Hint 3: Christopher Nolan"}
+    };
+    for(int i=0; i<3; i++)
     {
-        cout << "Correct!";
-    }
-    else
-    {
-        cout << "Incorrect! The correct answer was Inception";
+        for(int j=0; j<3; j++)
+        {
+            cout << hints[i][j] << endl;
+        }
+        string Answer;
+        cout << "Your Guess: ";
+        cin >> Answer;
+
+        if(Answer == arr[i])
+        {
+            cout << "Correct!" << endl;
+        }
+        else
+        {
+            cout << "Incorrect. The correct Answer was " << arr[i] << endl;
+        }
     }
 }
